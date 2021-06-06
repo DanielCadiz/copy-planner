@@ -13,7 +13,7 @@
   <% end %>
 </div>
 
-<%= form_with scope: :category, url: category_path, method: :put, local: true do |f| %>
+<%= form_with scope: :category, model: @category, method: :put, local: true do |f| %>
 
   <div>
     <%= f.label :title %>
