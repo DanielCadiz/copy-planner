@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-  validates :title, presence: true, uniqueness: true, length: { maximum: 20 }
+  validates :title, presence: true, uniqueness: {scope: :user}, length: { maximum: 10 }
 
-  has_many :tasks
+  belongs_to :user
+  has_many :tasks, dependent: :destroy
 end

@@ -4,6 +4,8 @@ class CreateCategories < ActiveRecord::Migration[6.1]
       t.string :title
 
       t.timestamps
+
+      t.references :user
     end
   end
 end

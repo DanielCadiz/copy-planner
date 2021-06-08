@@ -2,27 +2,27 @@
     <ul>
       <li><%= messages %></li>
     </ul>
-  <% end %>
+<% end %>
   
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @categories.each do |category| %>
       <tr>
-          <th>ID</th>
-          <th>Title</th>
+        <td><%= category.id %></td>
+        <td><%= category.title %></td>
+        <td><%= link_to 'Show', category_path(category) %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Delete', category_path(category), method: :delete, data: {confirm: "Are you sure?"} %></td>
       </tr>
-    </thead>
+    <% end %>
+  </tbody>
+</table>
   
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <td><%= category.id %></td>
-          <td><%= category.title %></td>
-          <td><%= link_to 'Show', category_path(category) %></td>
-          <td><%= link_to 'Edit', edit_category_path(category) %></td>
-          <td><%= link_to 'Delete', category_path(category), method: :delete, data: {confirm: "Are you sure?"} %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <%= link_to 'New Item', new_category_path %>
+<%= link_to 'New Item', new_category_path %>
